@@ -10,10 +10,11 @@
 export default{
   methods: {
     once: function(){
-      this.$router.path("/schedule")
+      this.$router.push("/schedule")
     },
     group: function(){
-      this.$router.path("/multi")
+      this.$router.push("/multi")
     }
   }
 }
+</script>

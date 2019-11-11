@@ -11,13 +11,14 @@
 export default{
   methods: {
     schedule: function(){
-      this.$router.path("/schedule")
+      this.$router.push("/schedule")
     },
     join: function(){
-      this.$router.path("/join")
+      this.$router.push("/join")
     },
     back: function(){
-        this.router.go(-1)
+      this.$router.go(-1)
     }
   }
 }
+</script>
