@@ -33,7 +33,7 @@ img {
   width: 48px;
   z-index: 2;
 }
-h1 {
+ h1 {
   z-index: 1;
 }
 .header-item {
@@ -47,6 +47,6 @@ img#img1 {
 img#img2 {
   float: right;
   margin-top: 20px;
-  margin-right: 20px;
+  margin-right: 20px; 
 }
 </style>

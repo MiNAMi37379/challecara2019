@@ -18,3 +18,14 @@ export default{
   }
 }
 </script>
+
+<style>
+button {
+  width: 70%;
+  height: 70px;
+  font-size: 180%;
+  margin: 20% 0% 0% 0%;
+  border: solid;
+  border-radius: 1em 1em;
+}
+</style>
