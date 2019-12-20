@@ -1,5 +1,5 @@
 <template>
-  <div class="schedule">
+  <div class="multi">
     <img src="../../image/back.png" id="img1" v-on:click="back">
     <h1 class="header-item">みんなで使う</h1>
     <img src="../../image/home.png" class="header-item" id="img2" v-on:click="home"><br>
@@ -28,12 +28,12 @@ export default{
 }
 </script>
 
-<style>
+<style scoped>
 img {
   width: 48px;
   z-index: 2;
 }
- h1 {
+h1 {
   z-index: 1;
 }
 .header-item {
@@ -41,12 +41,12 @@ img {
 }
 img#img1 {
   float: left;
-  margin-top: 20px;
-  margin-left: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 img#img2 {
   float: right;
-  margin-top: 20px;
-  margin-right: 20px; 
+  margin-top: 10px;
+  margin-right: 10px; 
 }
 </style>

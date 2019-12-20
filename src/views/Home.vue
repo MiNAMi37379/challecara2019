@@ -1,5 +1,5 @@
 <template>
-  <div class="schedule">
+  <div class="home">
     <h1 id="homeBunner">ラーメンまであと３分</h1>
     <button id="homeBtn" v-on:click="once">ひとりで使う</button><br>
     <button id="homeBtn" v-on:click="group">みんなで使う</button>
@@ -19,7 +19,7 @@ export default{
 }
 </script>
 
-<style>
+<style scoped>
 
 body {
   margin: 0px;
