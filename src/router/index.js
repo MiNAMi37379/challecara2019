@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import 'es6-promise/auto'
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
@@ -28,14 +29,27 @@ const routes = [
   {
     path: '/join',
     name: 'join',
-    component: () => import(/* webpackChunkName: "join" */ '../views/Schedule.vue')
+    component: () => import(/* webpackChunkName: "join" */ '../views/Join.vue')
+  },
+  {
+    path: '/check',
+    name: 'check',
+    component: () => import(/* webpackChunkName: "check" */ '../views/Check.vue')
   }
 ]
 
-const router = new VueRouter({
+export default new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
 
-export default router
+// export default new Router({
+//   mode: 'history',
+//   base: process.env.BASE_URL,
+//   routes: [
+//     {
+
+//     }
+//   ]
+// })
