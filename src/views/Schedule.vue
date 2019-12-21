@@ -5,11 +5,14 @@
       <h1 class="header-item">スケジュールを作成</h1>
       <img src="../../image/home.png" class="header-item" id="img2" v-on:click="home"><br>
     </header>
-    <div id="text">ワーク名とその所要時間を入力してください</div>
+    <div id="text">ワーク名とその所要時間を<br>入力してください</div>
     <input type="text" placeholder="ワーク名" v-model="works.name" /><br>
-    <input type="text" placeholder="所要時間" v-model="works.time" />分<br>
-    <button @click="add">追加</button><br>
-    <button v-on:click="check()">確認</button>
+    <div class="input2">
+      <input type="text" placeholder="分" v-model="works.min" />：
+      <input type="text" placeholder="秒" v-model="works.sec" />
+    </div>
+    <button @click="add" class="button1">追加</button><br>
+    <button v-on:click="check()" class="button2">確認</button>
   </div>
 </template>
 
@@ -44,12 +47,14 @@ export default{
 
 <style scoped>
 button {
-  width: 70%;
+  width: 100%;
   height: 70px;
   font-size: 180%;
-  margin: 20% 0% 0% 0%;
-  border: solid;
-  border-radius: 1em 1em;
+  margin: 0;
+  border: 1px solid;
+}
+.button1 {
+  margin-top: 25%
 }
 img {
   width: 48px;
@@ -57,13 +62,41 @@ img {
 }
 h1 {
   font-size: 170%;
+  font-weight: 300;
   z-index: 1;
+  margin-top: 0;
+  line-height: 70px;
+}
+header {
+  height: 70px;
+  margin-top: 0%;
+  margin-bottom: 50px;
+  font-weight: 300;
+  vertical-align: middle;
+  line-height: 70px;
+  background-color: rgb(238, 65, 34);
 }
 .header-item {
   display: inline-block;
 }
 div#text {
   margin-bottom: 20px;
+  font-size: 150%;
+}
+input {
+  width: 60%;
+  height: 50px;
+  border: 1px solid;
+  border-radius: 10px;
+  margin-top: 40px;
+  font-size: 150%;
+  text-align: center;
+}
+.input2 {
+  display: inline;
+}
+#text {
+  font-size: 150%
 }
 img#img1 {
   float: left;
@@ -71,14 +104,9 @@ img#img1 {
   margin-left: 10px;
 }
 img#img2 {
+  width: 48px;
   float: right;
   margin-top: 10px;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 </style>
-<!-- styleの追加実装内容
-・ヘッダーをHome.vueのように枠線で区切る
-・カラーリングをxdと同じになるように調整
-・input部分の配置をわかりやすくするために枠を色付けする
-・追加と確認のボタンの形状及び配置をxdと同じになるように変更
--->

@@ -3,9 +3,9 @@
     <h1>ワークの確認</h1>
     <ul>
       <li>ワーク名：{{ workname }}</li>
-      <li>所要時間：{{ worktime }}分</li>
+      <li>所要時間：{{ workmin }}分{{ worksec }}秒</li>
     </ul>
-    <button v-on:click="back">もどる</button><br>
+    <button v-on:click="back" class="button1">もどる</button><br>
     <button v-on:click="doing()">完了！</button>
   </div>
 </template>
@@ -17,8 +17,11 @@ export default{
     workname(){
       return this.$store.getters.getWorkName
     },
-    worktime(){
-      return this.$store.getters.getWorkTime
+    workmin(){
+      return this.$store.getters.getWorkMin
+    },
+    worksec(){
+      return this.$store.getters.getWorkSec
     }
   },
   methods: {
@@ -32,3 +35,30 @@ export default{
   }
 }
 </script>
+
+<style scoped>
+h1 {
+  height: 70px;
+  margin-top: 0%;
+  margin-bottom: 20%;
+  font-size: 180%;
+  font-weight: 300;
+  vertical-align: middle;
+  line-height: 70px;
+  background-color: rgb(238, 65, 34);
+}
+li {
+  font-size: 175%;
+  text-align: center;
+}
+button {
+  width: 100%;
+  height: 70px;
+  font-size: 180%;
+  margin: 0;
+  border: 1px solid;
+}
+.button1 {
+  margin-top: 83%
+}
+</style>

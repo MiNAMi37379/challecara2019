@@ -5,21 +5,26 @@ Vue.use(Vuex)
 
 const works = {
     name: '',
-    time: ''
+    min: '',
+    sec: '',
 }
 export default new Vuex.Store({
     state: {
         works,
         names:[],
-        times:[],
+        times_min:[],
+        times_sec:[],
         password: 0
     },
     getters: {
         getWorkName(state){
             return state.works.name
         },
-        getWorkTime(state){
-            return state.works.time
+        getWorkMin(state){
+            return state.works.min
+        },
+        getWorkSec(state){
+            return state.works.sec
         },
         getPassword(state){
             return state.password
@@ -28,7 +33,8 @@ export default new Vuex.Store({
     mutations: {
         setWork(state, data) {
             state.names = data.name;
-            state.times = data.time;
+            state.min = data.min;
+            state.sec = data.sec;
         },
         addPassword(state, data){
             state.password = data
@@ -36,7 +42,7 @@ export default new Vuex.Store({
     },
     actions: {
         updateWorkName({commit},data){
-            commit('setWorkName',data)
+            commit('setWork',data)
         }
     }
 })
