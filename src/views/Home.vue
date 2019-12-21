@@ -27,17 +27,22 @@ body {
 #homeBunner {
   height: 70px;
   margin-top: 0%;
-  margin-bottom: 30%;
+  margin-bottom: 20%;
   font-size: 180%;
-  border: solid;
+  font-weight: 300;
   vertical-align: middle;
+  line-height: 70px;
+  background-color: rgb(238, 65, 34);
 }
 #homeBtn {
   width: 70%;
-  height: 70px;
-  font-size: 180%;
+  height: 100px;
+  font-size: 220%;
+  font-weight: 300;
   margin: 20% 0% 0% 0%;
   border: solid;
   border-radius: 1em 1em;
+  background-color: white;
+  border-color: tomato;
 }
 </style>

@@ -1,18 +1,18 @@
 <template>
   <div class="doing">
-    <h1>実行画面</h1>
-    <h1>{{ workname }} </h1>
+    <h1 class="header">実行画面</h1>
+    <h1 class="workname">{{ workname }} </h1>
     <div id="timer">
       <div class="timer">
         <div class="time">
           {{ formatTime }}
         </div>
-        <button v-on:click="start" v-if="!timerOn">Start</button>
-        <button v-on:click="stop" v-if="timerOn">Stop</button>
-        <h1>{{ password }}</h1>
+        <button v-on:click="start" v-if="!timerOn" class="timebutton">Start</button>
+        <button v-on:click="stop" v-if="timerOn" class="timebutton">Stop</button>
       </div>
+      <h1>パスワード：{{ password }}</h1>
+      <button v-on:click="finish" class="backbutton">このスケジュールを終了</button>
     </div>
-    <button v-on:click="back">もどる</button>
   </div>
 </template>
 
@@ -46,16 +46,13 @@ export default{
   },
   data(){
     return {
-      min: this.$store.getters.getWorkTime,
-      sec: 0,
+      min: this.$store.getters.getWorkMin,
+      sec: this.$store.getters.getWorkSec,
       timerOn: false,
       timerObj: null,
     }
   },
   methods: {
-    back: function(){
-      this.$router.go(-1)
-    },
     home : function(){
       this.$router.push("/")
     },
@@ -69,23 +66,70 @@ export default{
         this.sec --;
       }
     },
-
     start: function() {
       let self = this;
       this.timerObj = setInterval(function() {self.count()}, 1000)
       this.timerOn = true; //timerがOFFであることを状態として保持
     },
-
     stop: function() {
       clearInterval(this.timerObj);
       this.timerOn = false; //timerがOFFであることを状態として保持
     },
-
     complete: function() {
       clearInterval(this.timerObj)
       window.alert("お疲れさまでした。ホーム画面に戻ります。");
       this.home();
+    },
+    finish: function() {
+      if(window.confirm("まだ終了時刻ではありませんがよろしいですか？")==true){
+        this.complete();
+      }
     }
   }
 }
 </script>
+
+<style scoped>
+.header{
+  height: 70px;
+  margin-top: 0%;
+  margin-bottom: 20%;
+  font-size: 180%;
+  font-weight: 300;
+  vertical-align: middle;
+  line-height: 70px;
+  background-color: rgb(238, 65, 34);
+}
+.workname {
+  width: 70%;
+  height: 70px;
+  font-size: 200%;
+  text-align: center;
+  border: 1px solid;
+  margin: 0 auto;
+  background-color: white;
+  line-height: 70px;
+  overflow: scroll;
+}
+.time {
+  width:69%;
+  margin: 0 auto;
+  font-size: 400%;
+  letter-spacing: 2px;
+  border: 5px solid;
+  background-color: white
+}
+.timebutton {
+  width: 40%;
+  height: 60px;
+  border: 1px solid;
+  font-size: 150%
+}
+.backbutton {
+  width: 80%;
+  height: 70px;
+  font-size: 180%;
+  margin: 0;
+  border: 1px solid;
+}
+</style>
